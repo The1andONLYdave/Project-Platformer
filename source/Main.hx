@@ -10,9 +10,9 @@ import flixel.FlxState;
 import flixel.FlxG;
 
 class Main extends Sprite 
-{ //20x12 tiles = 320x192 pixel
-	var gameWidth:Int = 320; // Width of the game in pixels (might be less / more in actual pixels depending on your zoom).
-	var gameHeight:Int = 192; // Height of the game in pixels (might be less / more in actual pixels depending on your zoom).
+{ //20x12 tiles = 320x192 pixel  with 71 tiles= 1420x852
+	var gameWidth:Int = 1420; // Width of the game in pixels (might be less / more in actual pixels depending on your zoom).
+	var gameHeight:Int = 852; // Height of the game in pixels (might be less / more in actual pixels depending on your zoom).
 	var initialState:Class<FlxState> = MenuState; // The FlxState the game starts with.
 	var zoom:Float = -1; // If -1, zoom is automatically calculated to fit the window dimensions.
 	//var zoom:Float = 1; // Testing for better scaling on different scrren sizes on android (nex4:1280x768(720 with softwarekeys on)(1,667) huawei-y300/s3mini:800x480(1,667))
@@ -73,6 +73,6 @@ class Main extends Sprite
 			gameHeight = Math.ceil(stageHeight / zoom);//192 or 192
 		}
 
-		addChild(new FlxGame(gameWidth, 192, initialState, zoom, framerate, framerate, skipSplash, startFullscreen));
+		addChild(new FlxGame(gameWidth, 852, initialState, zoom, framerate, framerate, skipSplash, startFullscreen));
 	}
 }
