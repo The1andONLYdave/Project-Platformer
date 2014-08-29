@@ -76,11 +76,11 @@ class PlayState extends FlxState
 		_tutorial = true;
 		_restart = false;
 		
-		add(background.loadMap(Assets.getText("assets/levels/mapCSV_Group1_Map1back.csv"), "assets/art/tiles_spritesheet.png", 70, 70, FlxTilemap.OFF));
+		add(background.loadMap(Assets.getText("assets/levels/mapCSV_Group1_Map1back.csv"), "assets/art/1.png", 71, 71, FlxTilemap.OFF));
 		background.scrollFactor.x = background.scrollFactor.y = .5;
 		
-		add(map.loadMap(Assets.getText("assets/levels/mapCSV_Group1_Map1.csv"), "assets/art/tiles_spritesheet.png", 70, 70));
-		add(ladders.loadMap(Assets.getText("assets/levels/mapCSV_Group1_Ladders.csv"), "assets/art/tiles_spritesheet", 70, 70));
+		add(map.loadMap(Assets.getText("assets/levels/mapCSV_Group1_Map1.csv"), "assets/art/1.png", 71, 71));
+		add(ladders.loadMap(Assets.getText("assets/levels/mapCSV_Group1_Ladders.csv"), "assets/art/1.png", 71, 71));
 		
 		virtualPad2 = new FlxVirtualPad(FULL, A_B);
 		virtualPad2.setAll("alpha", 0.5);
