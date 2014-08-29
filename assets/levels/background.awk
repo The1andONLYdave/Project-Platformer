@@ -3,8 +3,8 @@ BEGIN {
 ORS=","
 }
 {
-for (i=1; i<81; i++) 
-print "107"; 
+for (i=1; i<501; i++) 
+print "0"; 
 
 printf "\n";
 

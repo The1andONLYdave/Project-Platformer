@@ -50,7 +50,7 @@ add(virtualPad);
 		FlxG.state.bgColor = 0xFF101414;
 		
 		// Each word is its own object so we can position them independantly
-		_text1 = new FlxText( -220, FlxG.height / 4, 320, "Montezumas");
+		_text1 = new FlxText( -220, FlxG.height / 4, 320, "Platfomer");
 		_text1.moves = true;
 		_text1.size = 12;
 		//rgb 0 162 232
@@ -60,7 +60,7 @@ add(virtualPad);
 		add(_text1);
 		
 		// Base everything off of text1, so if we change color or size, only have to change one
-		_text2 = new FlxText(FlxG.width - 200 , FlxG.height / 2.5, 320, "Tower 8bit");
+		_text2 = new FlxText(FlxG.width - 200 , FlxG.height / 2.5, 320, "Developerversion");
 		_text2.moves = true;
 		_text2.size = _text1.size;
 		_text2.color = _text1.color;
@@ -69,7 +69,7 @@ add(virtualPad);
 		add(_text2);
 		
 		// Set up the menu options
-		_text3 = new FlxText(FlxG.width * 2 / 5, FlxG.height * 2 / 3, 150, "Play (click A for select/jump, B for shooting)");
+		_text3 = new FlxText(FlxG.width * 2 / 5, FlxG.height * 2 / 3, 150, "Play next Level");
 		_text4 = new FlxText(FlxG.width * 2 / 5, FlxG.height * 2 / 3 + 20, 150, "Give us Feedback");
 		_text5 = new FlxText(FlxG.width * 2 / 5, FlxG.height * 2 / 3 + 30, 150, "Visit flixel.org");
 		_text3.color = _text4.color = _text5.color = 0xAA00A2E8;

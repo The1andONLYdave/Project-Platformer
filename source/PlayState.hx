@@ -48,10 +48,10 @@ class PlayState extends FlxState
 	
 	override public function create():Void
 	{
-		AD.init("ca-app-pub-8761501900041217/8764631680", AD.CENTER, AD.BOTTOM, AD.BANNER_LANDSCAPE, true);
+		AD.init("ca-app-pub-8761501900041217/1204228481", AD.CENTER, AD.TOP, AD.BANNER_LANDSCAPE, true);
 		GAnalytics.startSession( "UA-47310419-7" );
 		GAnalytics.trackScreen( "90363841" );
-		GAnalytics.trackEvent("level1", "action", "starting", 1);
+		GAnalytics.trackEvent("platformer", "action", "starting", 1);
 		AD.show();
 		map = new FlxTilemap();
 		map.allowCollisions = FlxObject.ANY;
@@ -76,11 +76,11 @@ class PlayState extends FlxState
 		_tutorial = true;
 		_restart = false;
 		
-		add(background.loadMap(Assets.getText("assets/levels/mapCSV_Group1_Map1back.csv"), "assets/art/simples_pimples.png", 16, 16, FlxTilemap.OFF));
+		add(background.loadMap(Assets.getText("assets/levels/mapCSV_Group1_Map1back.csv"), "assets/art/tiles_spritesheet.png", 70, 70, FlxTilemap.OFF));
 		background.scrollFactor.x = background.scrollFactor.y = .5;
 		
-		add(map.loadMap(Assets.getText("assets/levels/mapCSV_Group1_Map1.csv"), "assets/art/simples_pimples.png", 16, 16));
-		add(ladders.loadMap(Assets.getText("assets/levels/mapCSV_Group1_Ladders.csv"), "assets/art/simples_pimples.png", 16, 16));
+		add(map.loadMap(Assets.getText("assets/levels/mapCSV_Group1_Map1.csv"), "assets/art/tiles_spritesheet.png", 70, 70));
+		add(ladders.loadMap(Assets.getText("assets/levels/mapCSV_Group1_Ladders.csv"), "assets/art/tiles_spritesheet", 70, 70));
 		
 		virtualPad2 = new FlxVirtualPad(FULL, A_B);
 		virtualPad2.setAll("alpha", 0.5);
@@ -102,7 +102,7 @@ class PlayState extends FlxState
 		_badbullets = new FlxGroup();
 		 
 		//
-		add(player = new Player(480, 20, this, _gibs, _bullets));
+		add(player = new Player(5, 5, this, _gibs, _bullets));
 		
 		// Attach the camera to the player. The number is how much to lag the camera to smooth things out
 		FlxG.camera.follow(player); 
@@ -204,13 +204,13 @@ class PlayState extends FlxState
 		{
 			_text2.visible = true;
 			AD.hide();
-			GAnalytics.trackEvent("level1", "action", "tutorial display", 1);
+			GAnalytics.trackEvent("platformer", "action", "tutorial display", 1);
 				
 			
 			if (PlayState.virtualPad2.buttonA.status == FlxButton.PRESSED) 
 			{
 				AD.show();
-				GAnalytics.trackEvent("level1", "action", "tutorial button", 1);
+				GAnalytics.trackEvent("platformer", "action", "tutorial button", 1);
 				_text2.visible=false;
 				_tutorial=false;
 			}
@@ -226,7 +226,7 @@ class PlayState extends FlxState
 			if (FlxG.keys.justPressed.R || PlayState.virtualPad2.buttonA.status == FlxButton.PRESSED) 
 			{
 				AD.show();
-				GAnalytics.trackEvent("level1", "action", "another try(pressed A Button)", 1);
+				GAnalytics.trackEvent("platformer", "action", "another try(pressed A Button)", 1);
 				_restart = true;
 			}
 		}
@@ -249,18 +249,18 @@ class PlayState extends FlxState
 	private function collectCoin(P:FlxObject, C:FlxObject):Void 
 	{
 		C.kill();
-		GAnalytics.trackEvent("level1", "action", "Collected a coin", 1);
+		GAnalytics.trackEvent("platformer", "action", "Collected a coin", 1);
 		//if(Reg.score > 89)
 		if(Reg.score == 20)
 		
 		{
 			//disable ADs maybe they hide the last 10 coin else
-			GAnalytics.trackEvent("level1", "action", "Collected 20 coin", 1);
+			GAnalytics.trackEvent("platformer", "action", "Collected 20 coin", 1);
 			AD.hide();
 		}
 		if(Reg.score > 24)
 		{
-			GAnalytics.trackEvent("level1", "action", "Collected 25 coin", 1);
+			GAnalytics.trackEvent("platformer", "action", "Collected 25 coin", 1);
 			FlxG.switchState(new WinningState());
 			AD.hide();
 		}
@@ -274,7 +274,7 @@ class PlayState extends FlxState
 	{
 	//	if(Reg.red > 0)
 			C.kill();
-			GAnalytics.trackEvent("level1", "unlock", "red box", 1);
+			GAnalytics.trackEvent("platformer", "unlock", "red box", 1);
 			map.setTileProperties(902, FlxObject.NONE);
 			_debug.text='dbg: Red Box Unlocked';
 		
@@ -283,7 +283,7 @@ class PlayState extends FlxState
 	private function collectCoinBlue(P:FlxObject, C:FlxObject):Void 
 	{
 			C.kill();
-			GAnalytics.trackEvent("level1", "unlock", "blue box", 1);
+			GAnalytics.trackEvent("platformer", "unlock", "blue box", 1);
 			map.setTileProperties(905, FlxObject.NONE);
 			_debug.text='dbg: BoxBlue Unlocked';
 		
@@ -292,7 +292,7 @@ class PlayState extends FlxState
 	private function collectCoinGreen(P:FlxObject, C:FlxObject):Void 
 	{
 			C.kill();
-			GAnalytics.trackEvent("level1", "unlock", "green box", 1);
+			GAnalytics.trackEvent("platformer", "unlock", "green box", 1);
 			map.setTileProperties(906, FlxObject.NONE);
 			_debug.text='dbg: Green Box Unlocked';
 	}	
@@ -305,13 +305,13 @@ class PlayState extends FlxState
 	{
 		if (Std.is(Monster, Bullet))
 		{
-			GAnalytics.trackEvent("level1", "action", "Monster hitPlayer", 1);
+			GAnalytics.trackEvent("platformer", "action", "Monster hitPlayer", 1);
 			Monster.kill();
 		}
 		
 		if (Monster.health > 0)
 		{
-			GAnalytics.trackEvent("level1", "action", "Monster hurtingPlayer", 1);
+			GAnalytics.trackEvent("platformer", "action", "Monster hurtingPlayer", 1);
 			// This should still be more interesting
 			P.hurt(1); 
 		}
