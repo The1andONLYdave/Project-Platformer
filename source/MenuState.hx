@@ -73,7 +73,7 @@ add(virtualPad);
 		_text4 = new FlxText(FlxG.width * 2 / 5, FlxG.height * 2 / 3 + 20, 150, "Give us Feedback");
 		_text5 = new FlxText(FlxG.width * 2 / 5, FlxG.height * 2 / 3 + 30, 150, "Visit flixel.org");
 		_text3.color = _text4.color = _text5.color = 0xAA00A2E8;
-		_text3.size = _text4.size = _text5.size = 8;
+		_text3.size = _text4.size = _text5.size =26;
 		_text3.antialiasing = _text4.antialiasing = _text5.antialiasing = true;
 		add(_text3);
 		add(_text4);

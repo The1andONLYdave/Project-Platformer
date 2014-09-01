@@ -76,11 +76,11 @@ class PlayState extends FlxState
 		_tutorial = true;
 		_restart = false;
 		
-		add(background.loadMap(Assets.getText("assets/levels/mapCSV_Group1_Map1back.csv"), "assets/art/1.png", 16, 16, FlxTilemap.OFF));
+		add(background.loadMap(Assets.getText("assets/levels/mapCSV_Group1_Map1back.csv"), "assets/art/1.png", 26, 26, FlxTilemap.OFF));
 		background.scrollFactor.x = background.scrollFactor.y = .5;
 		
-		add(map.loadMap(Assets.getText("assets/levels/mapCSV_Group1_Map1.csv"), "assets/art/1.png", 16, 16));
-		add(ladders.loadMap(Assets.getText("assets/levels/mapCSV_Group1_Ladders.csv"), "assets/art/1.png", 16, 16));
+		add(map.loadMap(Assets.getText("assets/levels/mapCSV_Group1_Map1.csv"), "assets/art/1.png", 26, 26));
+		add(ladders.loadMap(Assets.getText("assets/levels/mapCSV_Group1_Ladders.csv"), "assets/art/1.png", 26, 26));
 		
 		virtualPad2 = new FlxVirtualPad(FULL, A_B);
 		virtualPad2.setAll("alpha", 0.5);
@@ -102,7 +102,7 @@ class PlayState extends FlxState
 		_badbullets = new FlxGroup();
 		 
 		//
-		add(player = new Player(5, 5, this, _gibs, _bullets));
+		add(player = new Player(5, 10, this, _gibs, _bullets));
 		
 		// Attach the camera to the player. The number is how much to lag the camera to smooth things out
 		FlxG.camera.follow(player); 
